@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="style2.css" />
+    <script>
+      function setHeading() {
+        var heading = prompt("Enter a heading:");
+        document.getElementById("dynamicHeading").innerHTML = heading;
+      }
+    </script>
+  <title>Document</title>
+</head>
+
+  <!-- <div id="header">
+    <h1 id="title">Untitled Document</h1>
+    <p id="last-updated">Last updated at: <span id="timestamp"></span></p>
+  </div>
+  
+  <div class="navbar">
+    <i class="fas fa-text-height" id="textSizeOption"></i>
+    <i class="fas fa-italic" id="italicOption"></i>
+    <i class="fas fa-bold" id="boldOption"></i>
+    <i class="fas fa-underline" id="underlineOption"></i>
+    <i class="fas fa-align-right" id="alignRightOption"></i>
+    <i class="fas fa-align-center" id="alignCenterOption"></i>
+    <i class="fas fa-align-left" id="alignLeftOption"></i>
+    <i class="fas fa-link" id="insertLinkOption"></i>
+    <i class="fas fa-dot-circle" id="textFormatOption"></i>
+    <i class="fas fa-palette" id="colorPickerOption"></i>
+    <i class="fas fa-fill-drip" id="backgroundColorOption"></i>
+    <i class="fas fa-quote-right" id="addQuoteOption"></i>
+    <i class="fas fa-quote-left" id="addSlashOption"></i>
+  </div>
+  
+  <div class="color-picker" id="colorPicker">
+    color options here
+  </div> --> 
+    
+  <!-- <textarea id="content"></textarea> 
+  -->
+
+  <div class="left-side-bar">
+  <div class="header">
+    <img src="images\writee-logo.png" alt="Image">
+  </div>
+  <div class="menu">
+    <div class="menu-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </div>
+    <div class="menu-item">
+      <i class="fas fa-folder"></i>
+      <span>My Documents</span>
+    </div>
+    <div class="menu-item">
+      <i class="fas fa-toolbox"></i>
+      <span>Toolkit</span>
+    </div>
+  </div>
+  <div class="words-generated">
+    <span>WORDS GENERATED</span>
+     <!-- <input type="text" id="wordsGenerated">  -->
+  </div> 
+  <div class="loading-bar-container">
+    <div class="loading-bar" id="loadingBar"></div>
+  </div>
+  <div class="words-counter">
+    <span id="wordsCounter">50 out of 100000 words</span>
+  </div>
+  <div class="project">
+    <span>Project:</span>
+    <select id="selectProject">
+      <option value="linkedin">LinkedIn Posts</option>
+      <option value="instagram">Instagram Posts</option>
+      <option value="marketing">Marketing Content</option>
+    </select>
+  </div>
+  <div class="note">
+    <div class="danger">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>-57 Days Left</span>
+    </div>
+    <div class="click-here">
+      <a href="#">Click here</a>
+      <span>to choose your plan now</span>
+    </div>
+  </div>
+</div>
+
+
+
+<main>
+
+        <body onload="setHeading()">
+          <h1 id="dynamicHeading"></h1>
+        </body>
+  
+  <p id="last-updated">Last updated at: <span id="date-time"></span></p>
+  <script>
+    const dateTimeDisplay = document.querySelector("#date-time");
+    const currentDateTime = new Date();
+    dateTimeDisplay.innerHTML = currentDateTime.toLocaleString();
+  </script>
+  <div class="navbar">
+    <i class="fas fa-bold" id="boldOption"></i>
+    <i class="fas fa-italic" id="italicOption"></i>
+    <i class="fas fa-underline" id="underlineOption"></i>
+    <i class="fas fa-list-ul" id="pointsOption"></i>
+    <i class="fas fa-list-ol" id="numbersOption"></i>
+    <i class="fas fa-link" id="insertLinkOption"></i>
+    <i class="fas fa-align-left" id="alignLeftOption"></i>
+    <i class="fas fa-align-center" id="alignCenterOption"></i>
+    <i class="fas fa-align-right" id="alignRightOption"></i>
+    <i class="fas fa-palette" id="colorOption"></i>
+    <i class="fas fa-text-height" id="textSizeOption"></i>
+    <i class="fa fa-paint-brush" id="backgroundColorOption"></i>
+  </div>
+</nav>    
+
+<textarea id="content"></textarea>
+</main>
+
+<div class="right-side-bar">
+  <div class="metric-and-suggestions">
+    <p>Metrics & Suggestions</p>
+  </div>
+
+    <div>
+     <p style="color: purple; font-size: xx-large;"> <b>Suggestions</b></p>
+     <img src="images\writee.avif" alt="aImage">
+    </div>
+    
+  <div class="toolkit-container">
+    <p>In-situ Toolkit (beta)</p>
+    </div>
+    
+    <div class="content-type-container">
+      <p><b>Select Content Type <span style="color: red;">*</span> </b></p>
+      <select id="content-type-dropdown">
+        <option selected disabled>Select</option>
+      </select>
+    </div>
+    <div class="content-description-container">
+      <p><b>Content Description <span style="color: red;">*</span></b></p>
+      <textarea id="content-description-textbox">Describe your content here</textarea>
+    </div>
+    <button id="brew-magic-button">Brew Magic</button>
+    
+  <div class="word-count-container">
+    <p>Words: <span id="word-count"></span></p>
+    <p>Characters: <span id="character-count"></span></p>
+  </div>
+</div>
+
+  
+  
+  <script type="text/javascript" src="script2.js"></script>
+</body>
+</html>

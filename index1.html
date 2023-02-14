@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <style>
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      
+      .navbar i {
+        cursor: pointer;
+        padding: 0 10px;
+      }
+      
+      #textbox {
+        width: 60%;
+        height: 300px;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        resize: none;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+      }
+      
+      .color-picker {
+        position: absolute;
+        display: none;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      
+      .color-picker button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        border-radius: 50%;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Untitled Document</h1>
+    <p id="last-updated">Last updated at: <span id="date-time"></span></p>
+    <div class="navbar">
+      <i class="fas fa-bold" id="boldOption"></i>
+      <i class="fas fa-italic" id="italicOption"></i>
+      <i class="fas fa-underline" id="underlineOption"></i>
+      <i class="fas fa-list-ul" id="pointsOption"></i>
+      <i class="fas fa-list-ol" id="numbersOption"></i>
+      <i class="fas fa-link" id="insertLinkOption"></i>
+      <i class="fas fa-align-left" id="alignLeftOption"></i>
+      <i class="fas fa-align-center" id="alignCenterOption"></i>
+      <i class="fas fa-align-right" id="alignRightOption"></i>
+      <i class="fas fa-palette" id="colorOption"></i>
+      <i class="fas fa-text-height" id="textSizeOption"></i>
+      <i class="fa fa-paint-brush" id="backgroundColorOption"></i>
+    </div>
+  </nav>    
+
+  <textarea id="content"></textarea>
+</body>
+<script>
+  const dateTimeDisplay = document.querySelector("#date-time");
+  const currentDateTime = new Date();
+  dateTimeDisplay.innerHTML = currentDateTime.toLocaleString();
+</script>
+
+      <script>
+        // Get references to all the elements we need to manipulate
+        const textBox = document.getElementById("textbox");
+        const boldOption = document.getElementById("boldOption");
+        const italicOption = document.getElementById("italicOption");
+        const underlineOption = document.getElementById("underlineOption");
+        const pointsOption = document.getElementById("pointsOption");
+        const numbersOption = document.getElementById("numbersOption");
+        const insertLinkOption = document.getElementById("insertLinkOption");
+        const alignLeftOption = document.getElementById("alignLeftOption");
+        const alignCenterOption = document.getElementById("alignCenterOption");
+        const alignRightOption = document.getElementById("alignRightOption");
+        const colorPicker = document.getElementById("colorPicker");
+        const colorPickerBtn = document.getElementById("colorPickerBtn");
+      
+        // Handle the bold option
+        boldOption.addEventListener("click", function() {
+          document.execCommand("bold", false, null);
+        });
+      
+        // Handle the italic option
+        italicOption.addEventListener("click", function() {
+          document.execCommand("italic", false, null);
+        });
+      
+        // Handle the underline option
+        underlineOption.addEventListener("click", function() {
+          document.execCommand("underline", false, null);
+        });
+      
+        // Handle the points option
+        pointsOption.addEventListener("click", function() {
+          document.execCommand("insertUnorderedList", false, null);
+        });
+      
+        // Handle the numbers option
+        numbersOption.addEventListener("click", function() {
+          document.execCommand("insertOrderedList", false, null);
+        });
+      
+        // Handle the insert link option
+        insertLinkOption.addEventListener("click", function() {
+          const url = prompt("Enter the URL");
+          document.execCommand("createLink", false, url);
+        });
+      
+        // Handle the align left option
+        alignLeftOption.addEventListener("click", function() {
+          document.execCommand("justifyLeft", false, null);
+        });
+      
+        // Handle the align center option
+        alignCenterOption.addEventListener("click", function() {
+          document.execCommand("justifyCenter", false, null);
+        });
+      
+        // Handle the align right option
+        alignRightOption.addEventListener("click", function() {
+          document.execCommand("justifyRight", false, null);
+        });
+      
+        // Handle the color picker option
+        colorPickerBtn.addEventListener("click", function() {
+          colorPicker.style.display = "block";
+        });
+      
+        // Hide the color picker when clicking outside of it
+        document.addEventListener("click", function(event) {
+          if (event.target !== colorPickerBtn && event.target !== colorPicker) {
+            colorPicker.style.display = "none";
+          }
+        });
+      
+        // Apply the selected color
+        colorPicker.addEventListener("click", function(event) {
+  if (event.target.tagName === "BUTTON") {
+    textBox.style.color = event.target.style.backgroundColor;
+    colorPicker.style.display = "none";
+  }
+});
+</script>
+</html>
+      
